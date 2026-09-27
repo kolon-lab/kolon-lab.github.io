@@ -1,0 +1,211 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+%=========================Packages======================
+% Margins of paper 
+%----------------------------------------------------------------------------
+\usepackage[a4paper,vmargin={3cm,3cm},hmargin={2.5cm,2.5cm}]{geometry} 	
+
+% Head & Foot
+%----------------------------------------------------------------------------
+\usepackage{fancyhdr}	
+
+
+% Configure Captions, titles, environment styles
+%----------------------------------------------------------------------------
+\usepackage{amsthm}		%Options for environments
+\usepackage{titlesec} 	%Options for titles
+\usepackage{tocloft}		%Options for table of contents
+
+
+% Configure hyperref 
+%-----------------------------------------------------------------------------------------------------------------------
+%\usepackage[colorlinks=true,linkcolor=black]{hyperref}
+\usepackage[colorlinks = true,
+            linkcolor = myblue,
+            citecolor = myred 
+            ]{hyperref}
+            
+\usepackage{enumitem}
+\setlist[itemize]{label=\textbullet}
+
+% Bibliography
+%----------------------------------------------------------------------------
+\usepackage[numbers]{natbib}
+
+
+% Maths packages
+%----------------------------------------------------------------------------
+\usepackage{amsfonts}	%Usual math command (Mathbb,...)
+\usepackage{mathtools}  %Usual math command (Mathbb,...)
+\usepackage{amssymb}
+
+\usepackage{mathrsfs} 	%Curved font
+\usepackage{bm} 			%Bold grec math symbols
+
+\usepackage{stmaryrd} 	%Nice brackets for power series rings
+\usepackage{dsfont} 		%Characteristic function symbol
+
+\usepackage{nicematrix}	%Matrices
+\usepackage{cases}		%Cases
+
+\usepackage{float}
+
+
+% Others
+%----------------------------------------------------------------------------
+\usepackage{microtype} 	%Typographic refinements
+\usepackage{xcolor} 		%Add colors
+\usepackage[most]{tcolorbox}    % « most » charge skins, breakable, hooks...
+\usepackage{etoc}			%Local table of content
+
+\usepackage{graphicx}	%To include graphics
+\usepackage{subcaption} %To use subfigure
+
+\usepackage{lipsum}  	%To produce fake text
+
+\usepackage[absolute,overlay]{textpos}
+
+
+% Generic macros
+%-----------------------------------------------------------------------------------------------------------------------
+\newcommand{\tofill}{\textbf{\textcolor{red}{xx~}}}
+\usepackage{booktabs}
+\usepackage{comment}
+
+%\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+%\usepackage{amsmath,amssymb,amsthm,array}
+%\usepackage[a4paper,margin=2.25cm]{geometry}
+%\usepackage{xcolor}
+%\usepackage{fancyhdr}
+%\usepackage{hyperref}
+%\usepackage{multicol}
+
+
+%===========================Style=======================
+\definecolor{myblue}{RGB}{20,60,160}
+\definecolor{myred}{RGB}{200,16,40}
+\definecolor{cProof}{RGB}{100,100,100}
+
+\newcommand{\1}{\mathds{1}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.45em}
+%\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!60!black}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{Probabilités et statistiques - L2 S1}\fancyhead[R]{M. Barry, V.Dan}\fancyfoot[C]{\thepage}
+
+
+
+%New environments
+
+
+\newtheorem{theorem}{Théorème}
+\numberwithin{theorem}{section}					%Numbering
+\renewcommand{\thetheorem}{\thesection.\arabic{theorem}}	
+\newtheorem{lemme}[theorem]{Lemme}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{propriete}[theorem]{Propriété}
+\newtheorem{cor}[theorem]{Corollaire}
+\newtheorem{remarque}[theorem]{Remarque}
+\newtheorem{exemple}[theorem]{Exemple}
+
+\newtheorem{exercice}{Exercice}
+
+\theoremstyle{definition}						%Other style
+\newtheorem{definition}[theorem]{Définition}
+\newtheorem{methode}[theorem]{Méthode}
+
+\newtcolorbox{proofbox}{
+  blanker, breakable,
+  left=6pt,                       % retrait du texte après la barre
+  borderline west={1pt}{0pt}{cProof}, % <-- la barre : épaisseur 2pt
+  sharp corners, before skip=6pt, after skip=20pt
+}
+\renewenvironment{proof}{% remplace \begin{proof}
+  \par\vspace{2pt}\noindent\textit{Démonstration.}\hspace{0.5em}%
+  \begin{proofbox}\ignorespaces}%
+ {\hfill$\square$\end{proofbox}}
+
+
+
+\newcommand{\bemph}[1]{\textbf{\textcolor{myblue}{\emph{#1}}}}
+\newcommand{\remph}[1]{\textbf{\textcolor{myred}{\emph{#1}}}}
+\newcommand{\intervalle}[2]{\llbracket #1,#2 \rrbracket}
+
+
+\newenvironment{solution}{\par\small\color{blue!45!black}\textbf{Solution.} }{\par\normalsize\color{black}}
+
+%=====================COMMANDS=========================================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\M}[2]{\mathcal{M}_{#1,#2}(\R)}
+\newcommand{\Mn}[1]{\mathcal{M}_{#1}(\R)}
+
+
+\renewcommand{\leq}{\leqslant}   %Beautiful leq
+\renewcommand{\geq}{\geqslant}   %Beautiful geq
+
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\Vect}{\operatorname{Vect}}
+
+\newcommand{\Mat}[2]{\mathcal M_{#1,#2}(\K)}\newcommand{\Matsq}[1]{\mathcal M_{#1}(\K)}
+\newenvironment{corrige}{\par\smallskip\noindent\textbf{Corrigé.} }{\par\medskip}
+
+
+
+
+
+\begin{document}
+
+\begin{center}{\Large\bfseries Feuille d'exercices n\textsuperscript{o} 1}\\[.2em]{\large Espace probabilisé}\end{center}
+
+
+\begin{exercice}
+    La population d'un pays est constituée à 60\% de femmes, à 20\% d'enfants (fille ou
+garçon), et à 30\% de personnes qui portent des lunettes.
+\begin{enumerate}
+    \item Est-il possible que, dans le pays, une femme adulte porte des lunettes ?
+    \item On apprend par ailleurs que 15\% des habitants du pays sont des femmes qui
+portent des lunettes. Quelle proportion de la population sont des hommes qui ne portent
+pas de lunettes ?
+     \item On apprend maintenant que 8\% des habitants sont des enfants sans lunettes,
+et que 12\% habitants sont des enfants garçons. Vérifier qu'au moins trois quarts des
+habitants du pays est une femme, ou un enfant, ou une personne à lunettes.
+\end{enumerate} 
+\end{exercice}
+\vspace{0.15cm}
+
+
+\begin{exercice}
+Soit $(\Omega, \mathcal{F}, \P)$ un espace probabilisé, et $A_1, \dots, A_n$ des
+événements.
+\begin{enumerate}
+    \item Démontrer que, si les événements $(A_i)$ recouvrent l'univers, alors la
+probabilité d'au moins l'un d'entre eux est supérieure ou égale à $1/n$. Autrement dit,
+démontrer que
+\[ \bigcup_{i=1}^{n} A_i = \Omega \implies \exists i \in \intervalle{1}{n},\ \P(A_i) \geq
+   \frac{1}{n}. \]
+   \item Démontrer que,
+\[ \bigcap_{i=1}^{n} A_i = \emptyset \implies \exists i \in \intervalle{1}{n},\ \P(A_i) \leq
+   \frac{n - 1}{n}. \]
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+On lance deux dés équilibrés et distinguables.
+\begin{enumerate}
+    \item Décrire l'univers $\Omega$ associé à cette expérience.
+    \item Calculer la probabilité d'obtenir une somme égale à 7.
+    \item Quelle est la probabilité d'obtenir au moins un 6 ?
+\end{enumerate}
+\end{exercice}
+
+\end{document}
