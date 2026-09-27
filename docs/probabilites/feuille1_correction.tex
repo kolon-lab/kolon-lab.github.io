@@ -3,35 +3,169 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[french]{babel}
+%=========================Packages======================
+% Margins of paper 
+%----------------------------------------------------------------------------
+\usepackage[a4paper,vmargin={3cm,3cm},hmargin={2.5cm,2.5cm}]{geometry} 	
 
-\usepackage[a4paper,vmargin={3cm,3cm},hmargin={2.5cm,2.5cm}]{geometry}
-\usepackage{fancyhdr}
+% Head & Foot
+%----------------------------------------------------------------------------
+\usepackage{fancyhdr}	
 
-\usepackage{mathtools}
+
+% Configure Captions, titles, environment styles
+%----------------------------------------------------------------------------
+\usepackage{amsthm}		%Options for environments
+\usepackage{titlesec} 	%Options for titles
+\usepackage{tocloft}		%Options for table of contents
+
+
+% Configure hyperref 
+%-----------------------------------------------------------------------------------------------------------------------
+%\usepackage[colorlinks=true,linkcolor=black]{hyperref}
+\usepackage[colorlinks = true,
+            linkcolor = myblue,
+            citecolor = myred 
+            ]{hyperref}
+            
+\usepackage{enumitem}
+\setlist[itemize]{label=\textbullet}
+
+% Bibliography
+%----------------------------------------------------------------------------
+\usepackage[numbers]{natbib}
+
+
+% Maths packages
+%----------------------------------------------------------------------------
+\usepackage{amsfonts}	%Usual math command (Mathbb,...)
+\usepackage{mathtools}  %Usual math command (Mathbb,...)
 \usepackage{amssymb}
-\usepackage{stmaryrd}
-\usepackage{xcolor}
 
+\usepackage{mathrsfs} 	%Curved font
+\usepackage{bm} 			%Bold grec math symbols
+
+\usepackage{stmaryrd} 	%Nice brackets for power series rings
+\usepackage{dsfont} 		%Characteristic function symbol
+
+\usepackage{nicematrix}	%Matrices
+\usepackage{cases}		%Cases
+
+\usepackage{float}
+
+
+% Others
+%----------------------------------------------------------------------------
+\usepackage{microtype} 	%Typographic refinements
+\usepackage{xcolor} 		%Add colors
+\usepackage[most]{tcolorbox}    % « most » charge skins, breakable, hooks...
+\usepackage{etoc}			%Local table of content
+
+\usepackage{graphicx}	%To include graphics
+\usepackage{subcaption} %To use subfigure
+
+\usepackage{lipsum}  	%To produce fake text
+
+\usepackage[absolute,overlay]{textpos}
+
+
+% Generic macros
+%-----------------------------------------------------------------------------------------------------------------------
+\newcommand{\tofill}{\textbf{\textcolor{red}{xx~}}}
+\usepackage{booktabs}
+\usepackage{comment}
+
+%\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+%\usepackage{amsmath,amssymb,amsthm,array}
+%\usepackage[a4paper,margin=2.25cm]{geometry}
+%\usepackage{xcolor}
+%\usepackage{fancyhdr}
+%\usepackage{hyperref}
+%\usepackage{multicol}
+
+
+%===========================Style=======================
 \definecolor{myblue}{RGB}{20,60,160}
+\definecolor{myred}{RGB}{200,16,40}
+\definecolor{cProof}{RGB}{100,100,100}
+
+\newcommand{\1}{\mathds{1}}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{.45em}
+%\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!60!black}
 \pagestyle{fancy}\fancyhf{}\fancyhead[L]{Probabilités et statistiques - L2 S1}\fancyhead[R]{M. Barry, V.Dan}\fancyfoot[C]{\thepage}
+
+
+
+%New environments
+
+
+\newtheorem{theorem}{Théorème}
+\numberwithin{theorem}{section}					%Numbering
+\renewcommand{\thetheorem}{\thesection.\arabic{theorem}}	
+\newtheorem{lemme}[theorem]{Lemme}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{propriete}[theorem]{Propriété}
+\newtheorem{cor}[theorem]{Corollaire}
+\newtheorem{remarque}[theorem]{Remarque}
+\newtheorem{exemple}[theorem]{Exemple}
 
 \newtheorem{exercice}{Exercice}
 
+\theoremstyle{definition}						%Other style
+\newtheorem{definition}[theorem]{Définition}
+\newtheorem{methode}[theorem]{Méthode}
+
+\newtcolorbox{proofbox}{
+  blanker, breakable,
+  left=6pt,                       % retrait du texte après la barre
+  borderline west={1pt}{0pt}{cProof}, % <-- la barre : épaisseur 2pt
+  sharp corners, before skip=6pt, after skip=20pt
+}
+\renewenvironment{proof}{% remplace \begin{proof}
+  \par\vspace{2pt}\noindent\textit{Démonstration.}\hspace{0.5em}%
+  \begin{proofbox}\ignorespaces}%
+ {\hfill$\square$\end{proofbox}}
+
+
+
 \newcommand{\bemph}[1]{\textbf{\textcolor{myblue}{\emph{#1}}}}
+\newcommand{\remph}[1]{\textbf{\textcolor{myred}{\emph{#1}}}}
 \newcommand{\intervalle}[2]{\llbracket #1,#2 \rrbracket}
 
-\renewcommand{\P}{\mathbb{P}}
-\renewcommand{\leq}{\leqslant}
-\renewcommand{\geq}{\geqslant}
 
+\newenvironment{solution}{\par\small\color{blue!45!black}\textbf{Solution.} }{\par\normalsize\color{black}}
+
+%=====================COMMANDS=========================================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\M}[2]{\mathcal{M}_{#1,#2}(\R)}
+\newcommand{\Mn}[1]{\mathcal{M}_{#1}(\R)}
+
+
+\renewcommand{\leq}{\leqslant}   %Beautiful leq
+\renewcommand{\geq}{\geqslant}   %Beautiful geq
+
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\Vect}{\operatorname{Vect}}
+
+\newcommand{\Mat}[2]{\mathcal M_{#1,#2}(\K)}\newcommand{\Matsq}[1]{\mathcal M_{#1}(\K)}
 \newenvironment{corrige}{\par\smallskip\noindent\textbf{Corrigé.} }{\par\medskip}
+
+
+
+
 
 \begin{document}
 
-\begin{center}{\Large\bfseries Feuille d'exercices n\textsuperscript{o} 1 --- Corrigé}\\[.2em]{\large Espace probabilisé}\end{center}
+\begin{center}{\Large\bfseries Feuille d'exercices n\textsuperscript{o} 1}\\[.2em]{\large Espace probabilisé}\end{center}
 
 
 \begin{exercice}
@@ -45,64 +179,8 @@ pas de lunettes ?
      \item On apprend maintenant que 8\% des habitants sont des enfants sans lunettes,
 et que 12\% habitants sont des enfants garçons. Vérifier qu'au moins trois quarts des
 habitants du pays est une femme, ou un enfant, ou une personne à lunettes.
-\end{enumerate}
+\end{enumerate} 
 \end{exercice}
-
-\begin{corrige}
-Notons $F$, $E$, $H$ et $L$ les événements « être une femme adulte », « être un enfant »,
-« être un homme adulte » et « porter des lunettes ». Une personne étant soit une femme
-adulte, soit un enfant, soit un homme adulte, les événements $F$, $E$, $H$ forment une
-partition de $\Omega$, si bien que
-\[
-\P(F)=0.6,\qquad \P(E)=0.2,\qquad \P(H)=1-\P(F)-\P(E)=0.2,\qquad \P(L)=0.3.
-\]
-
-\begin{enumerate}
-\item Rien n'interdit que $F\cap L\neq\emptyset$. En effet, par les inégalités de
-Bonferroni,
-\[
-\max\bigl(0,\ \P(F)+\P(L)-1\bigr)\ \leq\ \P(F\cap L)\ \leq\ \min\bigl(\P(F),\P(L)\bigr),
-\]
-soit ici $0\leq \P(F\cap L)\leq 0.3$. La valeur $\P(F\cap L)$ n'est donc contrainte par
-aucune des deux bornes à être nulle : il est tout à fait possible (bien que non certain)
-qu'une femme adulte porte des lunettes.
-
-\item On sait à présent que $\P(F\cap L)=0.15$. On cherche $\P(H\cap L^c)$.
-
-Les événements $F\cap L$, $E\cap L$, $H\cap L$ forment une partition de $L$ (puisque $F,E,H$
-partitionnent $\Omega$), donc
-\[
-\P(H\cap L)=\P(L)-\P(F\cap L)-\P(E\cap L)=0.3-0.15-\P(E\cap L)=0.15-\P(E\cap L).
-\]
-Comme $0\leq \P(E\cap L)\leq \P(E)=0.2$, on obtient $\P(H\cap L)\in[0,\,0.15]$, d'où
-\[
-\P(H\cap L^c)=\P(H)-\P(H\cap L)=0.2-\P(H\cap L)\ \in\ [0.05,\ 0.2].
-\]
-Sans information supplémentaire sur les enfants portant des lunettes, on peut seulement
-affirmer qu'\bemph{entre 5\% et 20\% de la population sont des hommes sans lunettes}.
-
-\item On apprend que $\P(E\cap L^c)=0.08$, donc
-\[
-\P(E\cap L)=\P(E)-\P(E\cap L^c)=0.2-0.08=0.12.
-\]
-(La proportion de 12\% d'enfants garçons n'intervient pas dans le calcul demandé ici.)
-
-Comme $F\cap E=\emptyset$ (et donc $F\cap E\cap L=\emptyset$), la formule du crible donne
-\begin{align*}
-\P(F\cup E\cup L)
-&=\P(F)+\P(E)+\P(L)-\P(F\cap E)-\P(F\cap L)-\P(E\cap L)+\P(F\cap E\cap L)\\
-&=0.6+0.2+0.3-0-0.15-0.12+0\\
-&=0.83.
-\end{align*}
-Or $0.83\geq 0.75=\dfrac{3}{4}$ : au moins trois quarts des habitants du pays sont bien une
-femme, ou un enfant, ou une personne à lunettes.
-
-\emph{Remarque.} On peut à présent préciser la réponse de la question 2 :
-$\P(H\cap L)=0.15-0.12=0.03$, donc $\P(H\cap L^c)=0.2-0.03=0.17$ : exactement 17\% de la
-population sont des hommes sans lunettes, valeur bien comprise dans l'intervalle
-$[5\%,20\%]$ trouvé précédemment.
-\end{enumerate}
-\end{corrige}
 \vspace{0.15cm}
 
 
@@ -121,34 +199,6 @@ démontrer que
 \end{enumerate}
 \end{exercice}
 
-\begin{corrige}
-\begin{enumerate}
-\item Supposons $\bigcup_{i=1}^n A_i=\Omega$. Par $\sigma$-sous-additivité de $\P$,
-\[
-1=\P(\Omega)=\P\Bigl(\bigcup_{i=1}^n A_i\Bigr)\ \leq\ \sum_{i=1}^n \P(A_i).
-\]
-Raisonnons par l'absurde : si l'on avait $\P(A_i)<\frac1n$ pour \emph{tout} $i\in\intervalle{1}{n}$,
-alors
-\[
-\sum_{i=1}^n \P(A_i)\ <\ \sum_{i=1}^n \frac1n\ =\ n\cdot\frac1n\ =\ 1,
-\]
-ce qui contredit l'inégalité précédente $\sum_{i=1}^n\P(A_i)\geq 1$. Il existe donc au moins
-un indice $i\in\intervalle{1}{n}$ tel que $\P(A_i)\geq \dfrac1n$.
-
-\item Supposons $\bigcap_{i=1}^n A_i=\emptyset$. Par les lois de De Morgan,
-\[
-\bigcap_{i=1}^n A_i=\emptyset \iff \Bigl(\bigcap_{i=1}^n A_i\Bigr)^c=\Omega \iff
-\bigcup_{i=1}^n A_i^c=\Omega.
-\]
-Les événements $(A_i^c)_{1\leq i\leq n}$ recouvrent donc $\Omega$. D'après la première
-question appliquée à la famille $(A_i^c)$, il existe $i\in\intervalle{1}{n}$ tel que
-\[
-\P(A_i^c)\geq \frac1n, \qquad\text{c'est-à-dire}\qquad 1-\P(A_i)\geq \frac1n.
-\]
-On en déduit $\P(A_i)\leq 1-\dfrac1n=\dfrac{n-1}{n}$, ce qui est le résultat voulu.
-\end{enumerate}
-\end{corrige}
-
 \begin{exercice}
 On lance deux dés équilibrés et distinguables.
 \begin{enumerate}
@@ -157,39 +207,5 @@ On lance deux dés équilibrés et distinguables.
     \item Quelle est la probabilité d'obtenir au moins un 6 ?
 \end{enumerate}
 \end{exercice}
-
-\begin{corrige}
-\begin{enumerate}
-\item Les deux dés étant distinguables, un résultat est un couple (résultat du premier dé,
-résultat du second dé). On a donc
-\[
-\Omega=\intervalle{1}{6}^2=\{(i,j)\ :\ i,j\in\intervalle{1}{6}\},\qquad |\Omega|=36,
-\]
-muni de la probabilité uniforme (les dés étant équilibrés et les lancers indépendants),
-c'est-à-dire $\P(\{\omega\})=\dfrac{1}{36}$ pour tout $\omega\in\Omega$.
-
-\item Soit $S$ l'événement « la somme des deux dés vaut 7 ». Les couples $(i,j)\in\Omega$
-tels que $i+j=7$ sont
-\[
-(1,6),\ (2,5),\ (3,4),\ (4,3),\ (5,2),\ (6,1),
-\]
-soit $6$ couples favorables. L'univers étant muni de la probabilité uniforme,
-\[
-\P(S)=\frac{|S|}{|\Omega|}=\frac{6}{36}=\frac{1}{6}.
-\]
-
-\item Soit $B$ l'événement « obtenir au moins un 6 ». Il est plus simple de passer par
-l'événement contraire $B^c$ : « n'obtenir aucun 6 », c'est-à-dire que chacun des deux dés
-donne un résultat dans $\intervalle{1}{5}$. Par indépendance (ou dénombrement direct dans
-l'univers uniforme),
-\[
-\P(B^c)=\Bigl(\frac{5}{6}\Bigr)^2=\frac{25}{36},
-\]
-donc
-\[
-\P(B)=1-\P(B^c)=1-\frac{25}{36}=\frac{11}{36}.
-\]
-\end{enumerate}
-\end{corrige}
 
 \end{document}
