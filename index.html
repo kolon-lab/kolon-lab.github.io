@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kolon Barry — Doctorant</title>
+<meta name="description" content="Page de Kolon Barry, doctorant en cryptographie et intelligence artificielle.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Kolon Barry</h1>
+  <p class="subtitle">Doctorant en cryptographie et intelligence artificielle</p>
+  <p class="affiliation">
+    Université Paris 8 — Laboratoire LAGA (Paris 13 &amp; Paris 8), équipe AGA
+    (Arithmétique &amp; Géométrie Algébrique)
+  </p>
+  <nav class="links">
+    <a href="mailto:kolonb79@gmail.com">Email</a>
+    <a href="https://github.com/kolon-lab" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<main>
+
+  <section id="profil">
+    <h2>Profil</h2>
+    <p>
+      Mes travaux de recherche portent sur l'utilisation de modèles d'apprentissage
+      profond (deep learning) pour les attaques par canaux auxiliaires contre des
+      implémentations sécurisées de la cryptographie symétrique et post-quantique.
+    </p>
+  </section>
+
+  <section id="cours">
+    <h2>Cours &amp; TD</h2>
+
+    <h3>Probabilités</h3>
+    <ul class="resource-list">
+      <li>
+        <a href="docs/probabilites/feuille1_correction.pdf">
+          Feuille d'exercices n°1 — Corrigé (Espace probabilisé)
+        </a>
+      </li>
+      <!--
+        Pour ajouter une nouvelle feuille :
+        1. Déposez le PDF dans docs/probabilites/
+        2. Ajoutez une ligne <li><a href="docs/probabilites/votre_fichier.pdf">Titre</a></li>
+      -->
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> Kolon Barry</p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
