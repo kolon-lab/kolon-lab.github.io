@@ -1,0 +1,195 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+
+\usepackage[a4paper,vmargin={3cm,3cm},hmargin={2.5cm,2.5cm}]{geometry}
+\usepackage{fancyhdr}
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{xcolor}
+
+\definecolor{myblue}{RGB}{20,60,160}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.45em}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{Probabilités et statistiques - L2 S1}\fancyhead[R]{M. Barry, V.Dan}\fancyfoot[C]{\thepage}
+
+\newtheorem{exercice}{Exercice}
+
+\newcommand{\bemph}[1]{\textbf{\textcolor{myblue}{\emph{#1}}}}
+\newcommand{\intervalle}[2]{\llbracket #1,#2 \rrbracket}
+
+\renewcommand{\P}{\mathbb{P}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\newenvironment{corrige}{\par\smallskip\noindent\textbf{Corrigé.} }{\par\medskip}
+
+\begin{document}
+
+\begin{center}{\Large\bfseries Feuille d'exercices n\textsuperscript{o} 1 --- Corrigé}\\[.2em]{\large Espace probabilisé}\end{center}
+
+
+\begin{exercice}
+    La population d'un pays est constituée à 60\% de femmes, à 20\% d'enfants (fille ou
+garçon), et à 30\% de personnes qui portent des lunettes.
+\begin{enumerate}
+    \item Est-il possible que, dans le pays, une femme adulte porte des lunettes ?
+    \item On apprend par ailleurs que 15\% des habitants du pays sont des femmes qui
+portent des lunettes. Quelle proportion de la population sont des hommes qui ne portent
+pas de lunettes ?
+     \item On apprend maintenant que 8\% des habitants sont des enfants sans lunettes,
+et que 12\% habitants sont des enfants garçons. Vérifier qu'au moins trois quarts des
+habitants du pays est une femme, ou un enfant, ou une personne à lunettes.
+\end{enumerate}
+\end{exercice}
+
+\begin{corrige}
+Notons $F$, $E$, $H$ et $L$ les événements « être une femme adulte », « être un enfant »,
+« être un homme adulte » et « porter des lunettes ». Une personne étant soit une femme
+adulte, soit un enfant, soit un homme adulte, les événements $F$, $E$, $H$ forment une
+partition de $\Omega$, si bien que
+\[
+\P(F)=0.6,\qquad \P(E)=0.2,\qquad \P(H)=1-\P(F)-\P(E)=0.2,\qquad \P(L)=0.3.
+\]
+
+\begin{enumerate}
+\item Rien n'interdit que $F\cap L\neq\emptyset$. En effet, par les inégalités de
+Bonferroni,
+\[
+\max\bigl(0,\ \P(F)+\P(L)-1\bigr)\ \leq\ \P(F\cap L)\ \leq\ \min\bigl(\P(F),\P(L)\bigr),
+\]
+soit ici $0\leq \P(F\cap L)\leq 0.3$. La valeur $\P(F\cap L)$ n'est donc contrainte par
+aucune des deux bornes à être nulle : il est tout à fait possible (bien que non certain)
+qu'une femme adulte porte des lunettes.
+
+\item On sait à présent que $\P(F\cap L)=0.15$. On cherche $\P(H\cap L^c)$.
+
+Les événements $F\cap L$, $E\cap L$, $H\cap L$ forment une partition de $L$ (puisque $F,E,H$
+partitionnent $\Omega$), donc
+\[
+\P(H\cap L)=\P(L)-\P(F\cap L)-\P(E\cap L)=0.3-0.15-\P(E\cap L)=0.15-\P(E\cap L).
+\]
+Comme $0\leq \P(E\cap L)\leq \P(E)=0.2$, on obtient $\P(H\cap L)\in[0,\,0.15]$, d'où
+\[
+\P(H\cap L^c)=\P(H)-\P(H\cap L)=0.2-\P(H\cap L)\ \in\ [0.05,\ 0.2].
+\]
+Sans information supplémentaire sur les enfants portant des lunettes, on peut seulement
+affirmer qu'\bemph{entre 5\% et 20\% de la population sont des hommes sans lunettes}.
+
+\item On apprend que $\P(E\cap L^c)=0.08$, donc
+\[
+\P(E\cap L)=\P(E)-\P(E\cap L^c)=0.2-0.08=0.12.
+\]
+(La proportion de 12\% d'enfants garçons n'intervient pas dans le calcul demandé ici.)
+
+Comme $F\cap E=\emptyset$ (et donc $F\cap E\cap L=\emptyset$), la formule du crible donne
+\begin{align*}
+\P(F\cup E\cup L)
+&=\P(F)+\P(E)+\P(L)-\P(F\cap E)-\P(F\cap L)-\P(E\cap L)+\P(F\cap E\cap L)\\
+&=0.6+0.2+0.3-0-0.15-0.12+0\\
+&=0.83.
+\end{align*}
+Or $0.83\geq 0.75=\dfrac{3}{4}$ : au moins trois quarts des habitants du pays sont bien une
+femme, ou un enfant, ou une personne à lunettes.
+
+\emph{Remarque.} On peut à présent préciser la réponse de la question 2 :
+$\P(H\cap L)=0.15-0.12=0.03$, donc $\P(H\cap L^c)=0.2-0.03=0.17$ : exactement 17\% de la
+population sont des hommes sans lunettes, valeur bien comprise dans l'intervalle
+$[5\%,20\%]$ trouvé précédemment.
+\end{enumerate}
+\end{corrige}
+\vspace{0.15cm}
+
+
+\begin{exercice}
+Soit $(\Omega, \mathcal{F}, \P)$ un espace probabilisé, et $A_1, \dots, A_n$ des
+événements.
+\begin{enumerate}
+    \item Démontrer que, si les événements $(A_i)$ recouvrent l'univers, alors la
+probabilité d'au moins l'un d'entre eux est supérieure ou égale à $1/n$. Autrement dit,
+démontrer que
+\[ \bigcup_{i=1}^{n} A_i = \Omega \implies \exists i \in \intervalle{1}{n},\ \P(A_i) \geq
+   \frac{1}{n}. \]
+   \item Démontrer que,
+\[ \bigcap_{i=1}^{n} A_i = \emptyset \implies \exists i \in \intervalle{1}{n},\ \P(A_i) \leq
+   \frac{n - 1}{n}. \]
+\end{enumerate}
+\end{exercice}
+
+\begin{corrige}
+\begin{enumerate}
+\item Supposons $\bigcup_{i=1}^n A_i=\Omega$. Par $\sigma$-sous-additivité de $\P$,
+\[
+1=\P(\Omega)=\P\Bigl(\bigcup_{i=1}^n A_i\Bigr)\ \leq\ \sum_{i=1}^n \P(A_i).
+\]
+Raisonnons par l'absurde : si l'on avait $\P(A_i)<\frac1n$ pour \emph{tout} $i\in\intervalle{1}{n}$,
+alors
+\[
+\sum_{i=1}^n \P(A_i)\ <\ \sum_{i=1}^n \frac1n\ =\ n\cdot\frac1n\ =\ 1,
+\]
+ce qui contredit l'inégalité précédente $\sum_{i=1}^n\P(A_i)\geq 1$. Il existe donc au moins
+un indice $i\in\intervalle{1}{n}$ tel que $\P(A_i)\geq \dfrac1n$.
+
+\item Supposons $\bigcap_{i=1}^n A_i=\emptyset$. Par les lois de De Morgan,
+\[
+\bigcap_{i=1}^n A_i=\emptyset \iff \Bigl(\bigcap_{i=1}^n A_i\Bigr)^c=\Omega \iff
+\bigcup_{i=1}^n A_i^c=\Omega.
+\]
+Les événements $(A_i^c)_{1\leq i\leq n}$ recouvrent donc $\Omega$. D'après la première
+question appliquée à la famille $(A_i^c)$, il existe $i\in\intervalle{1}{n}$ tel que
+\[
+\P(A_i^c)\geq \frac1n, \qquad\text{c'est-à-dire}\qquad 1-\P(A_i)\geq \frac1n.
+\]
+On en déduit $\P(A_i)\leq 1-\dfrac1n=\dfrac{n-1}{n}$, ce qui est le résultat voulu.
+\end{enumerate}
+\end{corrige}
+
+\begin{exercice}
+On lance deux dés équilibrés et distinguables.
+\begin{enumerate}
+    \item Décrire l'univers $\Omega$ associé à cette expérience.
+    \item Calculer la probabilité d'obtenir une somme égale à 7.
+    \item Quelle est la probabilité d'obtenir au moins un 6 ?
+\end{enumerate}
+\end{exercice}
+
+\begin{corrige}
+\begin{enumerate}
+\item Les deux dés étant distinguables, un résultat est un couple (résultat du premier dé,
+résultat du second dé). On a donc
+\[
+\Omega=\intervalle{1}{6}^2=\{(i,j)\ :\ i,j\in\intervalle{1}{6}\},\qquad |\Omega|=36,
+\]
+muni de la probabilité uniforme (les dés étant équilibrés et les lancers indépendants),
+c'est-à-dire $\P(\{\omega\})=\dfrac{1}{36}$ pour tout $\omega\in\Omega$.
+
+\item Soit $S$ l'événement « la somme des deux dés vaut 7 ». Les couples $(i,j)\in\Omega$
+tels que $i+j=7$ sont
+\[
+(1,6),\ (2,5),\ (3,4),\ (4,3),\ (5,2),\ (6,1),
+\]
+soit $6$ couples favorables. L'univers étant muni de la probabilité uniforme,
+\[
+\P(S)=\frac{|S|}{|\Omega|}=\frac{6}{36}=\frac{1}{6}.
+\]
+
+\item Soit $B$ l'événement « obtenir au moins un 6 ». Il est plus simple de passer par
+l'événement contraire $B^c$ : « n'obtenir aucun 6 », c'est-à-dire que chacun des deux dés
+donne un résultat dans $\intervalle{1}{5}$. Par indépendance (ou dénombrement direct dans
+l'univers uniforme),
+\[
+\P(B^c)=\Bigl(\frac{5}{6}\Bigr)^2=\frac{25}{36},
+\]
+donc
+\[
+\P(B)=1-\P(B^c)=1-\frac{25}{36}=\frac{11}{36}.
+\]
+\end{enumerate}
+\end{corrige}
+
+\end{document}
