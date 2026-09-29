@@ -1,23 +1,63 @@
 :root {
-  --accent: #143ca0;
-  --text: #1a1a1a;
-  --muted: #5a5a5a;
-  --border: #e6e6e6;
+  --bg: #ffffff;
+  --text: #2b2b26;
+  --muted: #6b6b60;
+  --accent: #4a6b52;
+  --accent-soft: #eef2ec;
+  --border: #e4e1d8;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  background: #ffffff;
+  background: var(--bg);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   line-height: 1.6;
 }
 
-header,
+/* Top navigation */
+
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 1.4rem;
+  font-size: 0.92rem;
+}
+
+.nav-links a:first-child {
+  margin-left: 0;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
 main,
 footer {
   max-width: 700px;
@@ -26,14 +66,25 @@ footer {
   padding-right: 1.5rem;
 }
 
-header {
-  padding-top: 3.5rem;
-  padding-bottom: 1.5rem;
+main {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+section {
+  margin-bottom: 2.8rem;
+}
+
+/* Hero / Accueil */
+
+.hero {
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
   border-bottom: 1px solid var(--border);
 }
 
 h1 {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   margin: 0 0 0.3rem;
 }
 
@@ -44,9 +95,14 @@ h1 {
 }
 
 .affiliation {
-  margin: 0.5rem 0 1.1rem;
+  margin: 0.5rem 0 1rem;
   color: var(--muted);
   font-size: 0.92rem;
+}
+
+.intro {
+  margin: 0 0 1.1rem;
+  color: var(--text);
 }
 
 .links a {
@@ -54,19 +110,11 @@ h1 {
   text-decoration: none;
   margin-right: 1.3rem;
   font-size: 0.95rem;
+  font-weight: 600;
 }
 
 .links a:hover {
   text-decoration: underline;
-}
-
-main {
-  padding-top: 2.2rem;
-  padding-bottom: 3rem;
-}
-
-section {
-  margin-bottom: 2.6rem;
 }
 
 h2 {
@@ -75,6 +123,11 @@ h2 {
   border-bottom: 2px solid var(--accent);
   padding-bottom: 0.2rem;
   margin: 0 0 1rem;
+}
+
+section#recherche,
+section#enseignement {
+  padding-top: 2rem;
 }
 
 h3 {
@@ -91,8 +144,8 @@ h3:first-of-type {
 
 .subsection {
   margin-left: 1.2rem;
-  padding-left: 0.8rem;
-  border-left: 2px solid var(--border);
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--accent-soft);
   margin-bottom: 1rem;
 }
 
