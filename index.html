@@ -1,103 +1,261 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mamadou Kolon Barry — Doctorant</title>
-<meta name="description" content="Page de Mamadou Kolon Barry, doctorant en cryptographie et intelligence artificielle.">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Mamadou Kolon Barry — Doctorant</title>
+
+  <meta
+    name="description"
+    content="Page académique de Mamadou Kolon Barry, doctorant en cryptographie et intelligence artificielle."
+  >
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+<header class="site-header">
+
+  <div class="nav-container">
+
+    <a href="#accueil" class="site-name">
+      M. Kolon Barry
+    </a>
+
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="#accueil">Accueil</a>
+      <a href="#recherche">Recherche</a>
+      <a href="#enseignement">Enseignement</a>
+    </nav>
+
+  </div>
+
+</header>
+
 
 <main>
 
+  <!-- =========================
+       ACCUEIL
+       ========================= -->
+
   <section id="accueil" class="hero">
+
     <h1>Mamadou Kolon Barry</h1>
-    <p class="subtitle">Doctorant en cryptographie et intelligence artificielle</p>
+
+    <p class="subtitle">
+      Doctorant en cryptographie et intelligence artificielle
+    </p>
+
     <p class="affiliation">
-      Université Paris 8 — Laboratoire LAGA (Paris 13 &amp; Paris 8), équipe AGA
+      Université Paris 8 — Laboratoire LAGA
+      (Paris 13 &amp; Paris 8), équipe AGA
       (Arithmétique &amp; Géométrie Algébrique)
     </p>
+
     <p class="intro">
-      Bienvenue sur ma page personnelle. Vous y trouverez une présentation de mes travaux
-      de recherche ainsi que les supports et corrections liés à mes enseignements.
+      Bienvenue sur ma page personnelle. Vous y trouverez une présentation
+      de mes travaux de recherche ainsi que les supports et corrections
+      associés à mes activités d'enseignement.
     </p>
-    <nav class="links">
-      <a href="mailto:mamadou-kolon.barry21@etud.univ-paris8.fr">Email</a>
-    </nav>
+
+    <div class="links">
+
+      <a href="mailto:mamadou-kolon.barry21@etud.univ-paris8.fr">
+        Email
+      </a>
+
+      <!--
+      <a href="https://github.com/">
+        GitHub
+      </a>
+
+      <a href="https://orcid.org/">
+        ORCID
+      </a>
+
+      <a href="cv.pdf">
+        CV
+      </a>
+      -->
+
+    </div>
+
   </section>
+
+
+  <!-- =========================
+       RECHERCHE
+       ========================= -->
 
   <section id="recherche">
+
     <h2>Recherche</h2>
-    <p>
-      Mes travaux de recherche portent sur l'utilisation de modèles d'apprentissage
-      profond (deep learning) pour les attaques par canaux auxiliaires contre des
-      implémentations sécurisées de la cryptographie symétrique et post-quantique.
-    </p>
+
+    <div class="research-text">
+
+      <p>
+        Mes travaux de recherche portent sur l'utilisation de modèles
+        d'apprentissage profond (<em>deep learning</em>) pour les attaques
+        par canaux auxiliaires contre des implémentations sécurisées de
+        la cryptographie symétrique et post-quantique.
+      </p>
+
+      <div class="research-keywords">
+        <strong>Mots-clés :</strong>
+        cryptographie, attaques par canaux auxiliaires,
+        apprentissage profond, cryptographie post-quantique,
+        analyse de traces.
+      </div>
+
+    </div>
+
   </section>
 
+
+  <!-- =========================
+       ENSEIGNEMENT
+       ========================= -->
+
   <section id="enseignement">
+
     <h2>Enseignement</h2>
 
-    <h3>Année 2025-2026</h3>
-    <ul class="resource-list">
-      <!--
-        TD uniquement pour cette année, par exemple :
-        <li><a href="docs/2025-2026/td1.pdf">TD n°1</a></li>
-      -->
-    </ul>
 
-    <h3>Année 2026-2027</h3>
+    <!-- 2025-2026 -->
 
-    <div class="subsection">
-      <h4>Cours</h4>
+    <div class="year">
+
+      <h3 class="year-title">
+        2025–2026
+      </h3>
+
+      <div class="teaching-category">
+        TD
+      </div>
+
       <ul class="resource-list">
+
         <!--
-          Ajoutez ici les supports de cours 2026-2027, par exemple :
-          <li><a href="docs/2026-2027/cours/chapitre1.pdf">Chapitre 1</a></li>
+        <li>
+          <a href="docs/2025-2026/td1.pdf">
+            TD n°1
+          </a>
+        </li>
         -->
+
       </ul>
+
     </div>
 
-    <div class="subsection">
-      <h4>TD</h4>
+
+    <!-- 2026-2027 -->
+
+    <div class="year">
+
+      <h3 class="year-title">
+        2026–2027
+      </h3>
+
+
+      <!-- Cours -->
+
+      <div class="teaching-category">
+        Cours
+      </div>
+
       <ul class="resource-list">
-        <li>
-          <a href="docs/probabilites/feuille1.pdf">TD1 — (Espace probabilisé)</a>
-        </li>
-        <li>
-          <a href="docs/probabilites/feuille2.pdf">TD2 — (Dénombrement - Probabilités conditionnelles et Indépendance)</a>
-        </li>
+
         <!--
-          Pour un prochain TD :
-          <li><a href="docs/probabilites/feuille3.pdf">TD3 — Titre</a></li>
+        <li>
+          <a href="docs/2026-2027/cours/chapitre1.pdf">
+            Chapitre 1
+          </a>
+        </li>
         -->
+
       </ul>
+
+
+      <!-- TD -->
+
+      <div class="teaching-category">
+        TD
+      </div>
+
+      <ul class="resource-list">
+
+        <li>
+          <a href="docs/probabilites/feuille1.pdf">
+            TD1 — Espace probabilisé
+          </a>
+        </li>
+
+        <li>
+          <a href="docs/probabilites/feuille2.pdf">
+            TD2 — Dénombrement, probabilités conditionnelles et indépendance
+          </a>
+        </li>
+
+        <!--
+        <li>
+          <a href="docs/probabilites/feuille3.pdf">
+            TD3 — Titre
+          </a>
+        </li>
+        -->
+
+      </ul>
+
+
+      <!-- Corrections -->
+
+      <div class="teaching-category">
+        Corrections
+      </div>
+
+      <ul class="resource-list">
+
+        <li>
+          <a href="docs/probabilites/feuille1_correction.pdf">
+            Correction du TD1
+          </a>
+        </li>
+
+        <!--
+        <li>
+          <a href="docs/probabilites/feuille2_correction.pdf">
+            Correction du TD2
+          </a>
+        </li>
+        -->
+
+      </ul>
+
     </div>
 
-    <div class="subsection">
-      <h4>Correction TD</h4>
-      <ul class="resource-list">
-        <li>
-          <a href="docs/probabilites/feuille1_correction.pdf">Correction TD1</a>
-        </li>
-        <!--
-          Pour la correction d'un prochain TD :
-          <li><a href="docs/probabilites/feuille2_correction.pdf">Correction TD2</a></li>
-        -->
-      </ul>
-    </div>
   </section>
 
 </main>
 
+
 <footer>
-  <p>&copy; <span id="year"></span> Mamadou Kolon Barry</p>
+
+  <p>
+    &copy; <span id="year"></span> Mamadou Kolon Barry
+  </p>
+
 </footer>
 
+
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
 </script>
 
 </body>
+
 </html>
