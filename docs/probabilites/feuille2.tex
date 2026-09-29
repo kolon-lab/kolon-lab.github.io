@@ -33,6 +33,31 @@
 
 \begin{center}{\Large\bfseries Feuille d'exercices n\textsuperscript{o} 2 \\[.2em]{\large Probabilités conditionnelles et indépendances }}\end{center}
 
+\begin{exercice} \textbf{( Probabilité uniforme )} \\
+On jette une pièce de monnaie équilibrée trois fois de suite.
+\begin{enumerate}
+    \item  Décrire l'espace des événements. 
+    \item   Écrire les sous-ensembles de ; correspondants aux évènements suivants : 
+    \begin{enumerate}
+        \item $A_i$ : " la pièce sort pile au iéme jet", 
+        \item $B_i$ : " la pièce sort au plus i piles ",
+        \item $C_i$ : " pile sort exactement i fois ".
+    \end{enumerate}
+    \item  Calculer $\mathbb{P}(A_i)$, $\mathbb{P}(B_i)$, $\mathbb{P}(C_i)$ et $\mathbb{P}(\Bar{B_i})$,  $i=1 , 2, 3$. 
+\end{enumerate}
+    
+\end{exercice}
+\begin{exercice} \textbf{( Combinatoire )} \\
+On lance trois dés non truqués. Soient les événements suivants : \\
+A : " On obtient au moins un 1 ", \\
+B : " On obtient au moins deux faces identiques ", \\
+C : " La somme des nombres obtenus est paire".
+\begin{enumerate}
+    \item  Calculer $\mathbb{P}(A)$, $\mathbb{P}(B)$ et $\mathbb{P}(C)$. 
+    \item  Calculer $\mathbb{P}(A \cap B)$ , $\mathbb{P}(A \cap C)$ et $\mathbb{P}(B \cap C)$
+\end{enumerate}
+    
+\end{exercice}
 
 \begin{exercice} ( \textbf{Quelques propriétés des probabilités conditionnelles.})  \par 
 Soit A et B deux événements d'un espace probabilisé $(\Omega, \mathcal{F}, \mathbb{P})$. \par
@@ -41,8 +66,20 @@ Soit A et B deux événements d'un espace probabilisé $(\Omega, \mathcal{F}, \m
     \item  $\mathbb{P}(A | \Omega ) = \mathbb{P}(A)$
     \item $\mathbb{P}(A \cap B | B) = \mathbb{P}(A | B)$ 
     \item Si B n'est pas négligeable et $B \subseteq A$, alors $\mathbb{P}(A | B) = 1$ 
-    \item Soit un C événement tel que $\mathbb{P}(C) > 0$, montrer que $\mathbb{P}(A\cup B | C) = \mathbb{P}(A | C) + \mathbb{P}(B | C)$ 
-\end{enumerate}    
+\end{enumerate} 
+\textbf{Question 2.} Soit $C \in \mathcal{F}$ tel que $\mathbb{P}( C) > 0$. 
+\begin{enumerate}
+    \item Montrer si $A \subseteq B$, alors $\mathbb{P}(A | C) \leq \mathbb{P}(B | C)$; 
+    \item Additivité forte : Montrer que  $\mathbb{P}( A\cup B | C)= \mathbb{P}( A| C) + \mathbb{P}( B | C) - \mathbb{P}(A\cap B | C)$
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice} \textbf{(Probabilité totale et formule de Bayes )}
+
+On dispose de deux urnes $U_1$ et $U_2$. L'urne $U_1$ contient trois boules blanches et une boule noire. L'urne $U_2$ contient une boule blanche et deux boules noires. On lance un dé non truqué. Si le dé donne un nombre inférieur ou égale 2, on tire une boule dans $U_1$. Sinon on tire une boule dans $U_2$. On suppose que les boules sont indiscernables au toucher. \\ 
+
+\textbf{Question 1.} Calculer la probabilité de tirer une boule blanche. \\
+\textbf{Question 2.} On a tire une boule blanche. Calculer la probabilité qu'elle provienne de l'urne $U_1$.
 \end{exercice}
 
 \begin{exercice} (\textbf{Vrai ou Faux } ) \par
@@ -53,13 +90,7 @@ Soit A, B, C trois événements d'un espace probabilisé $(\Omega, \mathcal{F}, 
 indépendants. \\
 \textbf{Question 4.} On a : $\mathbb{P}(C | A\cup B) = \mathbb{P}(C| A) + \mathbb{P}(C | B)$ - $\mathbb{P}(C | A\cap B)$
 \end{exercice}
-\begin{exercice} \par
 
-On dispose de deux urnes $U_1$ et $U_2$. L'urne $U_1$ contient trois boules blanches et une boule noire. L'urne $U_2$ contient une boule blanche et deux boules noires. On lance un dé non truqué. Si le dé donne un nombre inférieur ou égale 2, on tire une boule dans $U_1$. Sinon on tire une boule dans $U_2$. On suppose que les boules sont indiscernables au toucher. \\ 
-
-\textbf{Question 1.} Calculer la probabilité de tirer une boule blanche. \\
-\textbf{Question 2.} On a tire une boule blanche. Calculer la probabilité qu'elle provienne de l'urne $U_1$.
-\end{exercice}
 \begin{exercice} ($\star \star \star$) \\
 Soit $(\Omega, \mathcal{F}, \mathbb{P})$ un espace probabilité; $(A_n)_{n \geq 1}$ une suite décroissante d'événements sur $\Omega$ vérifiant $\mathbb{P}(A_1) = \frac{1}{2}$, et $\forall n\geq 1$, $\mathbb{P}(\Bar{A}_{n+1} | A_n) \leq \frac{1}{(n+1)^2}$. \\
 
